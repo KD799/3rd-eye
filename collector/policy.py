@@ -17,7 +17,11 @@ ALLOWED_TOP = {
 ALLOWED_RECORD = {"source_id", "metric", "value", "ts_utc", "source_tz"}
 ALLOWED_EVENT = {"event_category", "severity", "count", "risk", "source_id", "ts_utc"}
 ALLOWED_HEALTH = {"cpu_pct", "mem_pct", "uptime_s", "config_status"}
-ALLOWED_METRICS = {"cpu", "mem", "disk", "latency", "packet_loss", "auth_failures", "iface_errors"}
+ALLOWED_METRICS = {
+    "cpu", "mem", "disk", "bandwidth", "latency", "packet_loss", "iface_errors",
+    "auth_failures", "suspicious_activity", "api_response_time", "api_errors",
+    "app_crashes", "db_query_time", "db_connections", "deadlocks",
+}
 ALLOWED_CATEGORIES = {"auth_failure_burst", "service_error", "config_change"}
 ALLOWED_SEVERITY = {"low", "medium", "high"}
 

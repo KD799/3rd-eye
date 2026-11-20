@@ -8,4 +8,6 @@ collector/egress_log.jsonl
 collector/local_raw.log
 collector/mock_saas_received.txt
 collector/OUTAGE
+thirdeye.db
+*.db
 

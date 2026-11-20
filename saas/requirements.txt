@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+httpx
+requests
+pydantic>=2
+psutil
