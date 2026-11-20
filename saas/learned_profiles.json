@@ -1,0 +1,65 @@
+{
+  "model": "explainable-median-mad-calibration",
+  "sources": {
+    "cicids2017": {
+      "normal": {
+        "bandwidth": {
+          "median": 2888.375065,
+          "mad": 2885.239391,
+          "p95": 1856353.591,
+          "p99": 12300000.0,
+          "count": 121924
+        }
+      },
+      "attack": {
+        "bandwidth": {
+          "median": 160.101242,
+          "mad": 157.786264,
+          "p95": 304934.129835,
+          "p99": 594107.919434,
+          "count": 128032
+        }
+      },
+      "rows_normal": 121966,
+      "rows_attack": 128034,
+      "license_note": "Verify dataset license and terms before redistribution."
+    },
+    "unsw_nb15": {
+      "normal": {
+        "latency": {
+          "median": 0.000662,
+          "mad": 0.001,
+          "p95": 0.219779,
+          "p99": 0.408881,
+          "count": 93000
+        },
+        "bandwidth": {
+          "median": 1040.0,
+          "mad": 894.0,
+          "p95": 18682.0,
+          "p99": 37938.0,
+          "count": 93000
+        }
+      },
+      "attack": {
+        "latency": {
+          "median": 0.0,
+          "mad": 0.001,
+          "p95": 0.197034,
+          "p99": 0.266723,
+          "count": 157000
+        },
+        "bandwidth": {
+          "median": 200.0,
+          "mad": 86.0,
+          "p95": 10293.15,
+          "p99": 129588.12,
+          "count": 157000
+        }
+      },
+      "rows_normal": 93000,
+      "rows_attack": 157000,
+      "license_note": "Verify dataset license and terms before redistribution."
+    }
+  }
+}

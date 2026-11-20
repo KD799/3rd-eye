@@ -3,6 +3,7 @@ import statistics
 from collections import deque, defaultdict
 from datetime import datetime, timezone
 from config import CFG, METRICS, EDGES, CATEGORY, CATEGORY_TITLE, CATEGORY_CAUSE, PLAYBOOK
+from calibration import get_profile
 
 
 def iso(ts): return datetime.fromtimestamp(ts, tz=timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")

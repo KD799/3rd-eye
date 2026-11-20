@@ -52,3 +52,25 @@ python tools/setup_demo.py http://127.0.0.1:8000
 cd collector
 python collector.py --ticks 60 --interval 0.2 --url http://127.0.0.1:8000/v1/ingest
 ```
+
+## Offline dataset calibration
+
+The engine remains an explainable median/MAD rules system. External datasets are
+used to calibrate normal and attack ranges, not to replace incident explanations
+with an opaque model.
+
+```powershell
+py tools/train_engine.py --max-rows 250000
+```
+
+Options:
+
+- `--cic-dataset`: Hugging Face CICIDS2017 dataset ID
+- `--unsw-dataset`: Hugging Face UNSW-NB15 dataset ID
+- `--nab-file`: local NAB CSV or Parquet file
+- `--yahoo-file`: local Yahoo anomaly CSV or Parquet file
+- `--google-file`: local Google Cluster Trace CSV or Parquet export
+
+`saas/learned_profiles.json` records source provenance and normal/attack
+statistics. It must be evaluated against held-out tenant data before production
+thresholds are changed.

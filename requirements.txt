@@ -4,3 +4,6 @@ httpx
 requests
 pydantic>=2
 psutil
+datasets
+pandas
+numpy
