@@ -36,3 +36,19 @@ python run_adapters.py
 python collector.py --ticks 60 --interval 0.2
 python reconcile.py
 ```
+
+## Run against the live SaaS API
+
+```powershell
+cd saas
+$env:THIRDEYE_DB="..\thirdeye.db"
+uvicorn api:app --host 127.0.0.1 --port 8000
+```
+
+In a second terminal:
+
+```powershell
+python tools/setup_demo.py http://127.0.0.1:8000
+cd collector
+python collector.py --ticks 60 --interval 0.2 --url http://127.0.0.1:8000/v1/ingest
+```

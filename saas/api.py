@@ -82,6 +82,20 @@ app = FastAPI(title="3rd Eye SaaS")
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
 
 
+@app.on_event("startup")
+def restore_engines():
+    """Rebuild learned engine state from SQLite after a SaaS restart."""
+    with LOCK:
+        for tenant in store.tenants():
+            cfg = store.get_config(tenant)
+            eng = TenantEngine(tenant, cfg.get("topology", {}), cfg.get("aliases", {}))
+            for src, metric, value, ts in store.all_records(tenant):
+                eng.ingest(src, metric, value, ts, clock())
+            eng.flush()
+            store.save_incidents(tenant, eng.incidents.values())
+            ENGINES[tenant] = eng
+
+
 def refresh_states(tenant, now):
     """Compute Excellent/Good/Fair/Poor per source + collector; log every transition (UTC) with its reason."""
     eng, out = engine_for(tenant), {"sources": {}, "collectors": {}}

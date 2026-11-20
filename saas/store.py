@@ -84,6 +84,13 @@ class Store:
 
     def payload_count(self, tenant): return self.q("SELECT COUNT(*) FROM payloads WHERE tenant_id=?", (tenant,))[0][0]
 
+    def tenants(self):
+        return [row[0] for row in self.q(
+            "SELECT DISTINCT tenant_id FROM payloads "
+            "UNION SELECT DISTINCT tenant_id FROM collectors "
+            "UNION SELECT DISTINCT tenant_id FROM tenant_config"
+        )]
+
     # ---- config, history, incidents ----
     def get_config(self, tenant):
         r = self.q("SELECT body FROM tenant_config WHERE tenant_id=?", (tenant,)); return json.loads(r[0][0]) if r else {}
