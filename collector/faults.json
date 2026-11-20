@@ -1,0 +1,5 @@
+[
+  {"at_tick": 80, "duration": 40, "source": "switch-a", "metric": "packet_loss", "delta": 6},
+  {"at_tick": 84, "duration": 36, "source": "switch-a", "metric": "latency",     "delta": 80},
+  {"at_tick": 86, "duration": 34, "source": "app-x",    "metric": "cpu",         "delta": 30}
+]
