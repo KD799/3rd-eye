@@ -1,4 +1,11 @@
 __pycache__/
 *.py[cod]
 venv/
+collector/outbox.db
+collector/outbox.db-shm
+collector/outbox.db-wal
+collector/egress_log.jsonl
+collector/local_raw.log
+collector/mock_saas_received.txt
+collector/OUTAGE
 
